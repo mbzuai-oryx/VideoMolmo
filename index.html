@@ -72,7 +72,7 @@
               <span class="author-block">
               <a href="https://scholar.google.com/citations?user=JcWO9OUAAAAJ&hl=en">Ahmed Heakl*</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://hananshafi.github.io/">Hanan Gani*</a><sup>1</sup>,</span>
+              <a href="https://hananshafi.github.io/">Hanan Gani</a><sup>1</sup>,</span>
             <span class="author-block">
               <a href="https://amshaker.github.io/">Abdelrahman Shaker</a><sup>1</sup>,
             </span>
@@ -91,9 +91,9 @@
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Mohamed Bin Zayed University of Artificial Intelligence,</span>
-            <span class="author-block"><sup>2</sup>University of Washington,</span>
-            <span class="author-block"><sup>3</sup>Allen Institute for Artificial Intelligence,</span>
+            <span class="author-block"><sup>1</sup>Mohamed Bin Zayed University of Artificial Intelligence</span>
+            <span class="author-block"><sup>2</sup>University of Washington</span>
+            <span class="author-block"><sup>3</sup>Allen Institute for Artificial Intelligence</span>
             <span class="author-block"><sup>4</sup>Linköping University</span>
             <span class="author-block"><sup>5</sup>Australian National University</span>
           </div>
@@ -274,478 +274,195 @@
 </section>
 
 
+  <!-- Abstract -->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <h4 class="subtitle has-text-justified">
+          <b>VideoMolmo</b> is a a large multimodal model tailored for fine-grained spatio-temporal pointing 
+          conditioned on textual descriptions. Building upon the Molmo architecture, VideoMolmo incorporates a 
+          temporal module utilizing an attention mechanism to condition each frame on preceding frames, ensuring
+           temporal consistency. Additionally, our novel temporal mask fusion pipeline employs SAM2 for bidirectional
+            point propagation, significantly enhancing coherence across video sequences. This two-step decomposition 
+            i.e., first using the LLM to generate precise pointing coordinates, then relying on a sequential mask-fusion
+             module to produce coherent segmentation, not only simplifies the task for the language model but also 
+             enhances interpretability. Due to the lack of suitable datasets, we curate a comprehensive dataset 
+             comprising 72k video-caption pairs annotated with 100k object points. To evaluate the generalization
+              of VideoMolmo, we introduce VPoS-Bench, a challenging out-of-distribution benchmark spanning five
+               real-world scenarios: Cell Tracking, Egocentric Vision, Autonomous Driving, Video-GUI Interaction, 
+               and Robotics. We also evaluate our model on Referring Video Object Segmentation (Refer-VOS) and 
+               Reasoning VOS tasks. In comparison to existing models, \method substantially improves spatio-temporal 
+               pointing accuracy and reasoning capability.
+        </h4>
+      </div>
+    </div>
+  </section>
 
+
+  <section class="section"  style="background-color:#efeff081">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+          <h2 class="title is-3">🔥Highlights</h2>
+          <div class="content has-text-justified">
+              Key contributions of VideoMolmo: 
   
-<!-- <h2 class="subtitle has-text-centered">
-          VideoMolmo Samples
-      </h2> -->
-      
+            <ol type="1">
+              <li>We introduce <b>VideoMolmo </b>, an LMM that accepts natural-language queries and produces point-level predictions for
+                target objects across entire video sequences, ensuring temporal consistency.</li><br>
+                <li>We further introduce Temporal module to leverage past temporal context and propose a novel temporal
+                  mask fusion pipeline for enhanced temporal
+                  coherence.</li><br>
+              <li>To achieve fine-grained spatio-temporal pointing, we introduce a comprehensive dataset of 72k video-caption pairs
+                and 100k object points.</li><br>
+              <li>To evaluate the generalization of VideoMolmo, we introduce <b>VPoS-Bench</b>,
+                a challenging out-of-distribution benchmark spanning five real-world scenarios: Cell Tracking,
+                Egocentric Vision, Autonomous Driving, Video-GUI Interaction, and Robotics. We also assess our
+                model on Referring Video Object Segmentation (Ref-VOS) and Reasoning VOS tasks. </li><br>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!--Model Arch-->
 <section class="section">
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-six-fifths">
+      <h2 class="title is-3"><width="40" style="vertical-align: bottom;"> VideoMolmo : Architecture</h2>
+    </div>
+  </div>
+
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+    <div class="columns is-centered">
+      <div class="column is-full-width">
         <div class="content has-text-justified">
           <p>
-  The recent developments in Large Multi-modal Video Models (Video-LMMs) have significantly enhanced our ability to interpret and analyze video data. Despite their impressive capabilities, current Video-LMMs have not been evaluated for anomaly detection tasks, which is critical to their deployment in practical scenarios e.g., towards identifying deepfakes, manipulated video content, traffic accidents and crimes. In this paper, we introduce VANE-Bench, a benchmark designed to assess the proficiency of Video-LMMs in detecting and localizing anomalies and inconsistencies in videos. Our dataset comprises an array of videos synthetically generated using existing state-of-the-art text-to-video generation models, encompassing a variety of subtle anomalies and inconsistencies grouped into five categories: unnatural transformations, unnatural appearance, pass-through, disappearance and sudden appearance. Additionally, our benchmark features real-world samples from existing anomaly detection datasets, focusing on crime-related irregularities, atypical pedestrian behavior, and unusual events. The task is structured as a visual question-answering challenge to gauge the models' ability to accurately detect and localize the anomalies within the videos. We evaluate nine existing Video-LMMs, both open and closed sources, on this benchmarking task and find that most of the models encounter difficulties in effectively identifying the subtle anomalies. In conclusion, our research offers significant insights into the current capabilities of Video-LMMs in the realm of anomaly detection, highlighting the importance of our work in evaluating and improving these models for real-world applications. 
-          </p>
+            <b>VideoMolmo</b> consists of four end-to-end trainable components: (1) a visual
+            encoder, (2) a temporal module, (3) visual projector (4) a decoder-only large language model (LLM);
+            and a post-processing module.</p>
         </div>
       </div>
-    </div>
-    <!--/ Abstract. -->
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Key Contributions. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">VANE-Bench serves as a strong benchmark to improve the performance and capabilities of Video-LMMs on anomaly detection.</h2>
-        <div class="content has-text-justified">
-          <b>Key Contributions:</b>
-          <ol>
-            <li>We present VANE-Bench: Video ANomaly Evaluation Benchmark, consisting of <b>325 video clips, and 559 challenging question-answer pairs</b> from both real-world video surveillance and AI-generated videos.</li>
-            <li>We perform detailed evaluation of over <b>nine state-of-the-art closed-source and open-source Video-LMMs</b> on VANE-Bench, and show that most models exhibit poor performance, highlighting the challenging nature of our proposed benchmark.</li>
-            <li>We conduct detailed result analysis, and also perform human evaluation on VANE-Bench to set a reasonable benchmark target.</li>
-            <li>We open-source our code, and describe the data construction process of VANE-Bench along with making our data publicly available.</li>
-          </ol>
-        </div>
-      </div>
-    </div>
-    <!--/ Key Contributions. -->
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Overview -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">VANE-Bench Overview</h2>
-        <div class="content has-text-justified">
-          <p>
-            VANE-Bench is a challenging benchmark created to assess video anomaly detection within Large Multimodal Models (LMMs). It consists of 325 video clips, and 559 QA pairs from over nine different AI-generated and real-world video samples, each showcasing different types of anomalies. The subtle, and hard to detect anomalies present within VANE-Bench makes our benchmark challenging for all the SOTA LMMs, and even for few humans. Our benchmark enables the development and evaluation of stronger Video-LMMs for real-world applications like deepfake detection, crime detection, and traffic accidents identification.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <figure class="columns is-vcentered">
-      <div class="column is-one-third">
-        <div class="image-container">
-          <a href="./static/images/ai_generated_donut_anomaly.png" data-lightbox="vane-bench" data-title="AI-generated anomaly">
-            <img src="./static/images/ai_generated_donut_anomaly.png" alt="AI-generated anomaly" style="width: 100%;">
-            <div class="overlay"><i class="fas fa-search-plus"></i></div>
-          </a>
-        </div>
-      </div>
-      <div class="column is-one-third">
-        <div class="image-container">
-          <a href="./static/images/real_world_donut_anomaly.png" data-lightbox="vane-bench" data-title="Real-world anomaly">
-            <img src="./static/images/real_world_donut_anomaly.png" alt="Real-world anomaly" style="width: 100%;">
-            <div class="overlay"><i class="fas fa-search-plus"></i></div>
-          </a>
-        </div>
-      </div>
-      <div class="column is-one-third">
-        <div class="image-container">
-          <a href="./static/images/bar_plot_vane_bench.png" data-lightbox="vane-bench" data-title="VANE-Bench statistics">
-            <img src="./static/images/bar_plot_vane_bench.png" alt="VANE-Bench statistics" style="width: 100%;">
-            <div class="overlay"><i class="fas fa-search-plus"></i></div>
-          </a>
-        </div>
-      </div>
-    </figure>
-    <figcaption class="has-text-centered">
-      VANE-Bench dataset statistics: <strong>Left and Middle:</strong> Composition and type of anomalies in AI-generated and real-world video samples. <strong>Right:</strong> Number of samples and QA pairs in each video dataset.
-    </figcaption>
-    <!--/ Overview -->
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- VANE-Bench Construction -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">VANE-Bench Construction</h2>
-      </div>
-    </div>
-
-    <div class="image-container">
-      <a href="./static/images/Main VANE-Bench Flow_v7.png" data-lightbox="vane-bench-construction" data-title="Flow diagram showing VANE-Bench Construction">
-        <img src="./static/images/Main VANE-Bench Flow_v7.png" alt="Flow diagram showing VANE-Bench Construction" style="width: 100%;">
-        <div class="overlay"><i class="fas fa-search-plus"></i></div>
-      </a>
     </div>
 
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <div class="content has-text-justified">
-          We propose a semi-automatic data construction pipeline which we used to construct our VANE-Bench dataset. Since SOTA AI-Generated videos may have subtle and challenging anomalies, we require high quality captions describing all of the specific inconsistencies present in the given video to construct relevant QA pairs. Our pipeline first annotates the anomalies using the frame annotation module (FAM). The caption generating module (CGM) then utilizes these annotations to produce captions, followed by the question-answer generation module (QAGM) creating QA pairs based on the annotated frames and captions. Annotating the clips before caption generation is crucial for focusing the model on the specific anomaly regions in the video.
-        </div>
-      </div>
-    </div>
-    <!-- VANE-Bench Construction -->
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
-    <div class="table-container">
-      <table class="table is-striped is-hoverable is-fullwidth">
-        <caption>Evaluation results of Video-LMMs across different types of video samples on the VANE benchmark. We present results for both open-source and closed-source models. The first five rows show results on AI-generated videos and last four contain results on real-world anomaly datasets. The evaluation metric is accuracy out of 100.00</caption>
-        <thead>
-          <tr>
-            <th>Benchmark Category</th>
-            <th>Video-LLaMA</th>
-            <th>VideoChat</th>
-            <th>Video-ChatGPT</th>
-            <th>Video-LLaVA</th>
-            <th>MovieChat</th>
-            <th>LLaMA-VID</th>
-            <th>TimeChat</th>
-            <th style="background-color: #fdd835;">Gemini-1.5 Pro</th> <!-- Highlighted -->
-            <th style="background-color: #fdd835;">GPT4o</th> <!-- Highlighted -->
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td rowspan="2">SORA</td>
-            <td>11.59</td>
-            <td>10.74</td>
-            <td>26.47</td>
-            <td>10.86</td>
-            <td>8.69</td>
-            <td>7.97</td>
-            <td>21.73</td>
-            <td style="background-color: #fdd835;">51.45</td> <!-- Highlighted -->
-            <td style="background-color: #fdd835;">55.80</td> <!-- Highlighted -->
-          </tr>
-          <tr></tr>
-          <tr>
-            <td rowspan="2">OpenSORA</td>
-            <td>18.00</td>
-            <td>28.00</td>
-            <td>22.00</td>
-            <td>18.00</td>
-            <td>10.00</td>
-            <td>14.00</td>
-            <td>26.00</td>
-            <td style="background-color: #fdd835;">84.00</td> <!-- Highlighted -->
-            <td style="background-color: #fdd835;">68.00</td> <!-- Highlighted -->
-          </tr>
-          <tr></tr>
-          <tr>
-            <td rowspan="2">Runway Gen2</td>
-            <td>16.00</td>
-            <td>4.00</td>
-            <td>12.00</td>
-            <td>16.00</td>
-            <td>16.00</td>
-            <td>20.00</td>
-            <td>28.00</td>
-            <td style="background-color: #fdd835;">28.00</td> <!-- Highlighted -->
-            <td style="background-color: #fdd835;">40.00</td> <!-- Highlighted -->
-          </tr>
-          <tr></tr>
-          <tr>
-            <td rowspan="2">VideoLCM</td>
-            <td>10.57</td>
-            <td>17.64</td>
-            <td>18.26</td>
-            <td>19.23</td>
-            <td>14.42</td>
-            <td>19.23</td>
-            <td>22.11</td>
-            <td style="background-color: #fdd835;">49.04</td> <!-- Highlighted -->
-            <td style="background-color: #fdd835;">50.96</td> <!-- Highlighted -->
-          </tr>
-          <tr></tr>
-          <tr>
-            <td rowspan="2">Modelscope-T2V</td>
-            <td>10.41</td>
-            <td>20.83</td>
-            <td>16.66</td>
-            <td>16.66</td>
-            <td>6.25</td>
-            <td>14.58</td>
-            <td>20.83</td>
-            <td style="background-color: #fdd835;">75.00</td> <!-- Highlighted -->
-            <td style="background-color: #fdd835;">64.58</td> <!-- Highlighted -->
-          </tr>
-          <tr></tr>
-          <tr>
-            <td rowspan="2">Avenue</td>
-            <td>30.00</td>
-            <td>32.25</td>
-            <td>39.39</td>
-            <td>3.03</td>
-            <td>18.18</td>
-            <td>27.27</td>
-            <td>24.20</td>
-            <td style="background-color: #fdd835;">100.00</td> <!-- Highlighted -->
-            <td style="background-color: #fdd835;">84.85</td> <!-- Highlighted -->
-          </tr>
-          <tr></tr>
-          <tr>
-            <td rowspan="2">UCFCrime</td>
-            <td>9.47</td>
-            <td>11.57</td>
-            <td>31.57</td>
-            <td>10.52</td>
-            <td>18.51</td>
-            <td>15.78</td>
-            <td>7.30</td>
-            <td style="background-color: #fdd835;">76.84</td> <!-- Highlighted -->
-            <td style="background-color: #fdd835;">83.16</td> <!-- Highlighted -->
-          </tr>
-          <tr></tr>
-          <tr>
-            <td rowspan="2">UCSD-Ped1</td>
-            <td>16.66</td>
-            <td>13.33</td>
-            <td>40.00</td>
-            <td>2.77</td>
-            <td>6.66</td>
-            <td>6.66</td>
-            <td>27.58</td>
-            <td style="background-color: #fdd835;">96.67</td> <!-- Highlighted -->
-            <td style="background-color: #fdd835;">93.33</td> <!-- Highlighted -->
-          </tr>
-          <tr></tr>
-          <tr>
-            <td rowspan="2">UCSD-Ped2</td>
-            <td>5.55</td>
-            <td>13.88</td>
-            <td>19.44</td>
-            <td>6.06</td>
-            <td>11.11</td>
-            <td>19.44</td>
-            <td>11.11</td>
-            <td style="background-color: #fdd835;">94.44</td> <!-- Highlighted -->
-            <td style="background-color: #fdd835;">86.11</td> <!-- Highlighted -->
-          </tr>
-          <tr></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- <section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
-    <div class="table-container">
-      <table class="table is-striped is-hoverable is-fullwidth">
-        <caption>Evaluation results of Video-LMMs across different types of video samples on the VANE benchmark. We present results for both open-source and closed-source models. The first five rows show results on AI-generated videos and last four contain results on real-world anomaly datasets. The evaluation metric is accuracy out of 100.00</caption>
-        <thead>
-          <tr>
-            <th>Benchmark Category</th>
-            <th>Video-LLaMA</th>
-            <th>VideoChat</th>
-            <th>Video-ChatGPT</th>
-            <th>Video-LLaVA</th>
-            <th>MovieChat</th>
-            <th>LLaMA-VID</th>
-            <th>TimeChat</th>
-            <th>Gemini-1.5 Pro</th>
-            <th>GPT4o</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td rowspan="2">SORA</td>
-            <td>11.59</td>
-            <td>10.74</td>
-            <td>26.47</td>
-            <td>10.86</td>
-            <td>8.69</td>
-            <td>7.97</td>
-            <td>21.73</td>
-            <td>51.45</td>
-            <td>55.80</td>
-          </tr>
-          <tr></tr>
-          <tr>
-            <td rowspan="2">OpenSORA</td>
-            <td>18.00</td>
-            <td>28.00</td>
-            <td>22.00</td>
-            <td>18.00</td>
-            <td>10.00</td>
-            <td>14.00</td>
-            <td>26.00</td>
-            <td>84.00</td>
-            <td>68.00</td>
-          </tr>
-          <tr></tr>
-          <tr>
-            <td rowspan="2">Runway Gen2</td>
-            <td>16.00</td>
-            <td>4.00</td>
-            <td>12.00</td>
-            <td>16.00</td>
-            <td>16.00</td>
-            <td>20.00</td>
-            <td>28.00</td>
-            <td>28.00</td>
-            <td>40.00</td>
-          </tr>
-          <tr></tr>
-          <tr>
-            <td rowspan="2">VideoLCM</td>
-            <td>10.57</td>
-            <td>17.64</td>
-            <td>18.26</td>
-            <td>19.23</td>
-            <td>14.42</td>
-            <td>19.23</td>
-            <td>22.11</td>
-            <td>49.04</td>
-            <td>50.96</td>
-          </tr>
-          <tr></tr>
-          <tr>
-            <td rowspan="2">Modelscope-T2V</td>
-            <td>10.41</td>
-            <td>20.83</td>
-            <td>16.66</td>
-            <td>16.66</td>
-            <td>6.25</td>
-            <td>14.58</td>
-            <td>20.83</td>
-            <td>75.00</td>
-            <td>64.58</td>
-          </tr>
-          <tr></tr>
-          <tr>
-            <td rowspan="2">Avenue</td>
-            <td>30.00</td>
-            <td>32.25</td>
-            <td>39.39</td>
-            <td>3.03</td>
-            <td>18.18</td>
-            <td>27.27</td>
-            <td>24.20</td>
-            <td>100.00</td>
-            <td>84.85</td>
-          </tr>
-          <tr></tr>
-          <tr>
-            <td rowspan="2">UCFCrime</td>
-            <td>9.47</td>
-            <td>11.57</td>
-            <td>31.57</td>
-            <td>10.52</td>
-            <td>18.51</td>
-            <td>15.78</td>
-            <td>7.30</td>
-            <td>76.84</td>
-            <td>83.16</td>
-          </tr>
-          <tr></tr>
-          <tr>
-            <td rowspan="2">UCSD-Ped1</td>
-            <td>16.66</td>
-            <td>13.33</td>
-            <td>40.00</td>
-            <td>2.77</td>
-            <td>6.66</td>
-            <td>6.66</td>
-            <td>27.58</td>
-            <td>96.67</td>
-            <td>93.33</td>
-          </tr>
-          <tr></tr>
-          <tr>
-            <td rowspan="2">UCSD-Ped2</td>
-            <td>5.55</td>
-            <td>13.88</td>
-            <td>19.44</td>
-            <td>6.06</td>
-            <td>11.11</td>
-            <td>19.44</td>
-            <td>11.11</td>
-            <td>94.44</td>
-            <td>86.11</td>
-          </tr>
-          <tr></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section> -->
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Qualitative Results and Other Plots</h2>
-    <!-- Figure 2 -->
-    <figure class="columns is-vcentered">
-      <div class="column is-one-half">
-        <div class="image-container">
-          <a href="./static/images/scatter_plot.png" data-lightbox="scatter-plot" data-title="Scatter Plot">
-            <img src="./static/images/scatter_plot.png" alt="Scatter Plot" style="width: 100%;">
-            <div class="overlay"><i class="fas fa-search-plus"></i></div>
-          </a>
-        </div>
-      </div>
-      <div class="column is-one-half">
-        <div class="image-container">
-          <a href="./static/images/intro_bar_plot_all_datasets.png" data-lightbox="intro-bar-plot" data-title="Bar Plot All Data">
-            <img src="./static/images/intro_bar_plot_all_datasets.png" alt="Intro Bar Plot All Datasets" style="width: 100%;">
-            <div class="overlay"><i class="fas fa-search-plus"></i></div>
-          </a>
-        </div>
-      </div>
-    </figure>
-    <figcaption><strong>Left:</strong> Performance of Video-LMMs on five anomaly categories of SORA dataset. <strong>Right:</strong> Overall performance of Video-LMMs averaged across all the benchmark datasets including AI-generated and real-world anomaly datasets.</figcaption>
-
-    <!-- Figure 5 -->
-    <div class="image-container">
-      <a href="./static/images/bar_plot_sora_human.png" data-lightbox="bar-plot-sora-human" data-title="Human vs Video-LMMs' performance on SORA data.">
-        <figure>
-          <img src="./static/images/bar_plot_sora_human.png" alt="Bar Plot SORA Human" style="width: 100%;">
+      <div class="column is-six-fifths" style="display: flex; align-items: flex-start; justify-content: center;">
+        <figure style="text-align: center;">
+          <img id="teaser" width="100%" src="static/images/videomolmo_main_diagram.jpg">
+          <figcaption>VideoMolmo is trained end-to-end for spatio-temporal pointing conditioned on textual instructions.
+            It features a visual encoder, a temporal module, an LLM, and a post-processing module. The visual
+            encoder processes the video frames and outputs multi-crop features. To maintain temporal consistency,
+            we introduce a temporal module which employs a cross-attention operation and ensures that the
+            current frame attends to the information in previous frames. The resultant features are then passed
+            to the LLM, which, along with the textual query, processes this information and outputs the points
+            corresponding to the objects. Our post-processing module takes the predictions from VideoMolmo
+            and uses SAM2 to propagate the points across all video frames bidirectionally.
+          </figcaption>
         </figure>
-        <div class="overlay"><i class="fas fa-search-plus"></i></div>
-      </a>
-      <figcaption><strong>Human vs Video-LMMs' performance on SORA:</strong> Performance comparison of humans vs Video-LMMs on VQA task of detecting anomalies in SORA dataset. We find that closed-source Video-LMMs perform comparably to humans while open-source Video-LMMs struggle to detect the subtle anomalies.</figcaption>
-    </div>
-
-    <div class="content has-text-centered">
-    </div>
-
-    <!-- Figure 8 -->
-    <div class="image-container">
-      <a href="./static/images/vane-appendix-qualitative.png" data-lightbox="vane-appendix-quali" data-title="Additional Qualitative Examples.">
-        <figure>
-          <img src="./static/images/vane-appendix-qualitative.png" alt="Qualitative examples" style="width: 100%;">
-        </figure>
-        <div class="overlay"><i class="fas fa-search-plus"></i></div>
-      </a>
-      <figcaption><strong>Qualitative examples:</strong> The figure shows the response of Video-LMMs to the VQA task of detecting anomalies in the video. The correct answer is written in bold in the user query. We find that the majority of Video-LMMs struggle to answer the questions correctly.</figcaption>
-    </div>
-
-    <div class="content has-text-centered">
-    </div>
-
-    <!-- Figure 10 -->
-    <div class="image-container">
-      <a href="./static/images/fam_importance_v3.png" data-lightbox="fam-importance" data-title="Ablation on our Frame Annotation Module.">
-        <figure>
-          <img src="./static/images/fam_importance_v3.png" alt="Frame Annotation Module Ablation" style="width: 100%;">
-        </figure>
-        <div class="overlay"><i class="fas fa-search-plus"></i></div>
-      </a>
-      <figcaption>Example showcasing the importance of our <strong>Frame Annotation Module (FAM)</strong>. We note that without FAM, the LMM responsible for generating the captions is not able to identify or describe the accurate anomaly present in the video. However, by providing the bounding box annotation for the inconsistency, we are able to ensure that the generated caption accurately describes the anomaly in the video.</figcaption>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="BibTeX">
+
+
+<!--Model labeling pipeline -->
+<section class="section">
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-six-fifths">
+      <h2 class="title is-3"><width="40" style="vertical-align: bottom;"> VideoMolmo Training Dataset: Annotation Pipeline</h2>
+    </div>
+  </div>
+
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="content has-text-justified">
+          <p></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths" style="display: flex; align-items: flex-start; justify-content: center;">
+        <figure style="text-align: center;">
+          <img id="teaser" width="100%" src="static/images/videomolmo_annotation_diagram.jpg">
+          <figcaption><b>VideoMolmo annotation pipeline:</b> We construct point-level supervision from frame-
+            level masks using a semi-automatic process. For each frame, k points are sampled on the mask and
+            passed to SAM2 to generate candidate masks. The point with the highest-IoU candidate mask (w.r.t.
+            ground truth) is selected as the optimal annotation.         </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--Quantitative Results-->
+<section class="section">
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-six-fifths">
+      <h2 class="title is-3"><width="40" style="vertical-align: bottom;">VideoMolmo: Quantitative Results</h2>
+    </div>
+  </div>
+
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="content has-text-justified">
+          <p> We evaluate <b>VideoMolmo</b> on four challenging tasks: point grounding, counting, referring
+            segmentation, and reasoning video object segmentation </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths" style="display: flex; align-items: flex-start; justify-content: center;">
+        <figure style="text-align: center;">
+          <img id="teaser" width="100%" src="static/images/videomolmo_quantitative_results.png">
+          <figcaption>      </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--Qualitative Results-->
+<section class="section">
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-six-fifths">
+      <h2 class="title is-3"><width="40" style="vertical-align: bottom;">VideoMolmo: Qualitative Results on VPoS-Bench</h2>
+    </div>
+  </div>
+
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="content has-text-justified">
+          <!-- <p> We evaluate <b>VideoMolmo</b> on four challenging tasks: point grounding, counting, referring
+            segmentation, and reasoning video object segmentation </p> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths" style="display: flex; align-items: flex-start; justify-content: center;">
+        <figure style="text-align: center;">
+          <img id="teaser" width="100%" src="static/images/benchmark_diagram.png">
+          <figcaption>  VideoMolmo demonstrates robust generalization and fine-grained spatio-temporal
+            grounding across diverse out-of-distribution scenarios from our proposed benchmark, for instance,
+            correctly pointing to traffic lights (2nd row) in challenging driving scenes despite never encountering
+            such scenarios during training.    </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@misc{bharadwaj2024vanebench,
@@ -757,7 +474,7 @@
       primaryClass={id='cs.CV' full_name='Computer Vision and Pattern Recognition' is_active=True alt_name=None in_archive='cs' is_general=False description='Covers image processing, computer vision, pattern recognition, and scene understanding. Roughly includes material in ACM Subject Classes I.2.10, I.4, and I.5.'}
 }</code></pre>
   </div>
-</section>
+</section> -->
 
 
 <footer class="footer">
