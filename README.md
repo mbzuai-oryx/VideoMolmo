@@ -90,8 +90,6 @@ To be released soon! Stay tuned for updates.
 
 ## Todos
 
-## Todos
-
 - [ ] Release training and evaluation scripts.
 - [ ] Provide detailed benchmarks and comparisons.
 - [ ] Add support for additional datasets.
@@ -110,6 +108,6 @@ To be released soon! Stay tuned for updates.
 
 ---
 
-[<img src="assets/MBZUAI_logo.png" width="360" height="85">](https://mbzuai.ac.ae)
-[<img src="assets/allenai_logo.png" width="360" height="85">](https://mbzuai.ac.ae)
-[<img src="assets/UW_logo.png" width="360" height="85">](https://mbzuai.ac.ae)
+[<img src="assets/MBZUAI_logo.png" width="360" height="90">](https://mbzuai.ac.ae)
+[<img src="assets/allenai_logo.png" width="300" height="85">](https://allenai.org/)
+[<img src="assets/UW_logo.png" width="300">](https://www.washington.edu/)
