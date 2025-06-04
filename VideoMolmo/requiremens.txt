@@ -1,0 +1,7 @@
+transformers==4.47.0
+opencv-python
+hydra-core
+matplotlib
+natsort
+bitsandbytes
+iopath

@@ -62,20 +62,24 @@ We propose a semi-automatic annotation pipeline for creating a grounded conversa
 
 ### Environment setup
 
-    conda create --name=videomolmo python=3.11
+```bash
+git clone https://github.com/mbzuai-oryx/VideoMolmo
+cd VideoMolmo
+conda create -n .videomolmo python=3.10 -y
+conda activate .videomolmo
+pip install torch==2.5.1 torchvision==0.20.1 --index-url https://download.pytorch.org/whl/cu121
+git clone https://github.com/allenai/molmo.git
+cd molmo && pip install -e .[all] && cd .. && rm -rf molmo # setup molmo requirements
+pip install -r requirements.txt
+python setup.py build_ext --inplace # build sam2
+gdown https://dl.fbaipublicfiles.com/segment_anything_2/072824/sam2_hiera_large.pt -O VideoMolmo/sam2/sam2_checkpoints/sam2_hiera_large.pt
+```
 
-    conda activate videomolmo
-
-    pip install torch==2.1.2 torchvision==0.16.2 --index-url https://download.pytorch.org/whl/cu121
-    pip install transformers==4.41.0
-    DS_BUILD_FUSED_ADAM=1 pip install deepspeed==0.14.0
-
-    pip install -r VideoMolmo/requirements_sam2_cluster.txt 
-
-    cd VideoMolmo/model/segment_anything_2
-    python setup.py build_ext --inplace
-    cd ../../..
-
+### Inference on sample video
+To inference on sample video in `examples/video_sample1`
+```bash
+python infer.py
+```
 
 ### Training and Evaluation
 
