@@ -1,24 +1,21 @@
 import os
-import sys
-from tqdm import tqdm
 import argparse
-import numpy as np
-import torch
-import shutil
-import cv2
 import json
 
 from PIL import Image
 from transformers import (
-    AutoModelForCausalLM,
-    AutoProcessor,
     GenerationConfig,
-    BitsAndBytesConfig
+    BitsAndBytesConfig,
+    AutoTokenizer
 )
-from sam2.build_sam import build_sam2_video_predictor
+import numpy as np
+import torch
+import cv2
 
-from transformers import AutoTokenizer
+from sam2.build_sam import build_sam2_video_predictor
 from utils import save_images_folder, get_coords, pil_to_np
+from memory_preprocessor import MultiModalPreprocessor
+from memory import MolmoForCausalLM  
 
 parser = argparse.ArgumentParser(description="Inference")
 
@@ -27,18 +24,17 @@ parser.add_argument("--frame_rate", type=int, default=10)
 parser.add_argument("--save_path", type=str, default='./results/molmo')
 parser.add_argument("--molmo_model", type=str, default='allenai/Molmo-7B-D-0924') 
 parser.add_argument("--split", type=int, default=0, choices=[0,1,2,3]) 
+parser.add_argument("--sam2_checkpoint", type=str, default='checkpoints/sam2.1_hiera_large.pt')
+parser.add_argument("--sam2_config", type=str, default='configs/sam2.1_hiera_l.yaml')
 args = parser.parse_args()
 
 device = 'cuda'
 model_name = args.molmo_model
-# model_path = 'ghazishazan/VideoMolmo'
-model_path = "/share/data/drive_1/shehan/VideoMolmo_checkpoints/checkpoint-600"
+model_path = 'ghazishazan/VideoMolmo'
 quant_config = BitsAndBytesConfig(
     load_in_4bit=True
 )
 
-from memory_preprocessor import MultiModalPreprocessor
-from memory import MolmoForCausalLM  
 model = MolmoForCausalLM.from_pretrained(
     model_path,
     torch_dtype='auto',
@@ -50,11 +46,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_name)
 processor = MultiModalPreprocessor(tokenizer=tokenizer)
 model.eval()
 
-# SAM2 configs
-sam2_checkpoint = "/share/users/shehan/workspace_pointing_lmm/sam2/checkpoints/sam2.1_hiera_large.pt"
-model_cfg = "configs/sam2.1/sam2.1_hiera_l.yaml"
-
-predictor = build_sam2_video_predictor(model_cfg, sam2_checkpoint, device=device)
+predictor = build_sam2_video_predictor(args.sam2_config, args.sam2_checkpoint, device=device)
 
 def get_output(images, prev_frames, prompt, model=None, processor=None, tokenizer=None):
     conversation = [
@@ -98,14 +90,10 @@ def get_output(images, prev_frames, prompt, model=None, processor=None, tokenize
     return generated_text
 
 
-# root = f'/share/users/shehan/workspace_pointing_lmm/benchmark/annotated/{args.dataset}'
-# videos = [vid for vid in os.listdir(os.path.join(root, 'frames'))]
-# annotations = json.load(open(os.path.join(root, 'annotations.json'), "r"))
-
 max_video_len = 100
 points = {}
-video = "0cc488ce-d208-4357-a0fe-187f46447e02"
-frames_dir = "/share/users/shehan/workspace_pointing_lmm/benchmark/annotated/ego4d/frames/0cc488ce-d208-4357-a0fe-187f46447e02"
+frames_dir = "examples/video_sample1"
+video = os.path.basename(frames_dir)
 print(f'video: {video}')
 
 frames = sorted([frame for frame in os.listdir(frames_dir) if frame.endswith(('.jpg', '.png'))])
