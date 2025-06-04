@@ -74,7 +74,8 @@ git clone https://github.com/allenai/molmo.git
 cd molmo && pip install -e .[all] && cd .. && rm -rf molmo # setup molmo requirements
 pip install -r requirements.txt
 python setup.py build_ext --inplace # build sam2
-gdown https://dl.fbaipublicfiles.com/segment_anything_2/072824/sam2_hiera_large.pt -O VideoMolmo/sam2/sam2_checkpoints/sam2_hiera_large.pt
+mkdir -p sam2_checkpoints
+gdown https://dl.fbaipublicfiles.com/segment_anything_2/072824/sam2_hiera_large.pt -O sam2_checkpoints/sam2_hiera_large.pt
 ```
 
 ### Inference on sample video
