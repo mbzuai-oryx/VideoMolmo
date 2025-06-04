@@ -1,8 +1,8 @@
-# 📽️ VideoMolmo: Spatio-Temporal Grounding meets Pointing
+# VideoMolmo: Spatio-Temporal Grounding meets Pointing
 
 <div align="left" style="margin:24px 0;">
   <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif"
-       width="100%" height="5"/>
+       width="100%" height="4"/>
 </div>
 
 <p align="center">
@@ -12,9 +12,10 @@
 
 <p align="center">
   <b>Ghazi Shazan Ahmad</b><sup>*</sup>, <b>Ahmed Heakl</b><sup>*</sup>, 
-  <b>Hanan Gani</b>, <b>Abdelrahman Shaker</b>, <b>Ranjay Krishna</b>, 
-  <b>Fahad Shahbaz Khan</b>, <b>Salman Khan</b>  
+  <b>Hanan Gani</b>, <b>Abdelrahman Shaker</b>,<br> 
+  <b>Ranjay Krishna</b>, <b>Fahad Shahbaz Khan</b>, <b>Salman Khan</b>
 </p>
+
 
 <p align="center">
   <b>MBZUAI</b> · <b>University of Washington</b> · <b>Allen Institute for AI</b> · <b>Linköping University</b> · <b>ANU</b>
@@ -28,9 +29,9 @@
 
 - 📢 **May 2025**: Paper and inference code released!
 
----
 
-## Overview
+
+## 📊 Overview
 
 <p align="center">
   <img src="assets/videomolmo_teaser.png" width="70%" alt="VideoMolmo Architectural Overview">
@@ -90,7 +91,7 @@ We propose a semi-automatic annotation pipeline for creating a grounded conversa
 
 ---
 
-## Running VideoMolmo 🔧
+## 🔧 Running VideoMolmo 
 
 ### Environment setup
 
@@ -106,7 +107,7 @@ pip install torch==2.5.1 torchvision==0.20.1 --index-url https://download.pytorc
 (2) Setup Molmo
 ```bash
 git clone https://github.com/allenai/molmo.git
-cd molmo && pip install -e .[all] && cd .. && rm -rf molmo # setup molmo requirements
+cd molmo && pip install -e .[all] && cd .. # setup molmo requirements
 pip install -r requirements.txt
 ```
 
@@ -114,15 +115,40 @@ pip install -r requirements.txt
 ```bash
 python setup.py build_ext --inplace # build sam2
 mkdir -p sam2_checkpoints
-wget https://dl.fbaipublicfiles.com/segment_anything_2/072824/sam2_hiera_large.pt -O sam2_checkpoints/sam2_hiera_large.pt
+wget https://dl.fbaipublicfiles.com/segment_anything_2/092824/sam2.1_hiera_large.pt -O sam2_checkpoints/sam2.1_hiera_large.pt
 ```
 
-### Inference on sample video
-To inference on sample video in `examples/video_sample1`
+### 🔄 Inference
+
+To run inference on the provided sample video:
+
 ```bash
-python infer.py
+python infer.py \
+  --video_path examples/video_sample1 \
+  --prompt "point to the person in red shirt" \
+  --save_path "results"
 ```
 
+Your video should be a folder with all the frames. Sample structure:
+```
+video_sample1/
+├── frame_0001.jpg
+├── frame_0002.jpg
+├── frame_0003.jpg
+└── ...
+```
+
+Output includes segmentation masks for each frame and a JSON file (`points.jsonl`) containing point coordinates.
+```
+reuslts/
+├── video_sample1/
+│   ├── frame_0001.jpg
+│   ├── frame_0002.jpg
+│   ├── frame_0003.jpg
+│   ├── points.jsonl
+│   └── ...
+└── ...
+```
 ### Training and Evaluation 🚀
 
 To be released soon! Stay tuned for updates.

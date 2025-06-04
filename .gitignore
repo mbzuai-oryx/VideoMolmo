@@ -2,6 +2,7 @@
 # Custom
 VideoMolmo/sam2_checkpoints/*
 VideoMolmo/build
+VideoMolmo/molmo
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
