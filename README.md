@@ -1,10 +1,12 @@
 # VideoMolmo: Spatio-Temporal Grounding meets Pointing
 ![](https://i.imgur.com/waxVImv.png)
 
-[Ghazi Shazan Ahmad](https://github.com/khufia)* , [Ahmed Heakl](https://github.com/ahmedheakl)*, [Hanan Gani](https://github.com/hananshafi), [Abdelrahman Shaker](https://amshaker.github.io/), [Ranjay Krishna](https://ranjaykrishna.com/index.html), [Fahad Shahbaz Khan](https://scholar.google.es/citations?user=zvaeYnUAAAAJ&hl=en). [Salman Khan](https://salman-h-khan.github.io/),
+[Ghazi Shazan Ahmad](https://github.com/khufia)* , [Ahmed Heakl](https://scholar.google.com/citations?user=JcWO9OUAAAAJ&hl=en)*, [Hanan Gani](https://github.com/hananshafi), [Abdelrahman Shaker](https://amshaker.github.io/), [Ranjay Krishna](https://ranjaykrishna.com/index.html), [Fahad Shahbaz Khan](https://scholar.google.es/citations?user=zvaeYnUAAAAJ&hl=en). [Salman Khan](https://salman-h-khan.github.io/),
 
 **MBZUAI, University of Washington, Allen Institute for Artificial Intelligence, 
 Linköping University, ANU**
+
+\* Equal Technical Contributions
 
 [![Website](https://img.shields.io/badge/Project-Website-87CEEB)](https://mbzuai-oryx.github.io/VideoMolmo/)
 [![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2411.04923)
@@ -81,9 +83,19 @@ To inference on sample video in `examples/video_sample1`
 python infer.py
 ```
 
-### Training and Evaluation
+### Training and Evaluation 🚀
 
-To be released soon!
+To be released soon! Stay tuned for updates.
+
+
+## Todos
+
+## Todos
+
+- [ ] Release training and evaluation scripts.
+- [ ] Provide detailed benchmarks and comparisons.
+- [ ] Add support for additional datasets.
+- [ ] Release dataset creation pipeline.
 
 
 ## Citation 📜
