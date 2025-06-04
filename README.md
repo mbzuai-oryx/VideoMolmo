@@ -57,6 +57,25 @@ Key contributions of **VideoMolmo**:
 
 We propose a semi-automatic annotation pipeline for creating a grounded conversation generation (GCG) dataset for videos.
 
+---
+
+## Results
+
+
+> |1| **VideoMolmo** demonstrates robust generalization and fine-grained spatio-temporal grounding across diverse out-of-distribution scenarios from our proposed benchmark, for instance, correctly pointing to traffic lights (2nd row) in challenging driving scenes despite never encountering such scenarios during training.
+<p align="center">
+  <img src="assets/benchmark_diagram.png" alt="Benchmark results">
+</p>
+
+
+> |2| Quantative results showing VideoMolmo with average improvement of 4.1% over SoTA (VideoGLaMM) and 4.8% over our baseline (Molmo+SAM2). 
+<p align="center">
+  <img src="assets/videomolmo_quantitative_results.png" alt="Benchmark results">
+</p>
+
+
+
+
 
 ---
 
@@ -101,7 +120,6 @@ To be released soon! Stay tuned for updates.
 ## Todos
 
 - [ ] Release training and evaluation scripts.
-- [ ] Provide detailed benchmarks and comparisons.
 - [ ] Add support for additional datasets.
 - [ ] Release dataset creation pipeline.
 
