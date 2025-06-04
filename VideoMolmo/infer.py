@@ -172,11 +172,11 @@ def main(args):
 def parse_args():
     parser = argparse.ArgumentParser(description="Inference")
     parser.add_argument("--frame_rate", type=int, default=10)
-    parser.add_argument("--save_path", type=str, default='./results/molmo')
+    parser.add_argument("--save_path", type=str, default='./results')
     parser.add_argument("--molmo_model", type=str, default='allenai/Molmo-7B-D-0924') 
     parser.add_argument("--sam2_checkpoint", type=str, default='sam2_checkpoints/sam2.1_hiera_large.pt')
     parser.add_argument("--sam2_config", type=str, default='configs/sam2.1_hiera_l.yaml')
-    parser.add_argument("--video_path", type=str, default='examples/video_sample1')
+    parser.add_argument("--video_path", type=str, default='../examples/video_sample1')
     parser.add_argument("--prompt", type=str, default='Point to the left hand')
     parser.add_argument("--model_path", type=str, default='ghazishazan/VideoMolmo')
     return parser.parse_args()

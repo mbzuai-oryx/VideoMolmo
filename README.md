@@ -124,7 +124,7 @@ To run inference on the provided sample video:
 
 ```bash
 python infer.py \
-  --video_path examples/video_sample1 \
+  --video_path ../examples/video_sample1 \
   --prompt "point to the person in red shirt" \
   --save_path "results"
 ```
