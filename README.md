@@ -51,7 +51,6 @@ Key contributions of **VideoMolmo**:
 4. To evaluate the generalization of VideoMolmo, we introduce VPoS-Bench, a challenging out-of-distribution benchmark spanning five real-world scenarios: Cell Tracking, Egocentric Vision, Autonomous Driving, Video-GUI Interaction, and Robotics. We also assess our model on Referring Video Object Segmentation (Ref-VOS) and Reasoning VOS tasks.
 
 ---
-<!-- Architecture -->
 ## Architecture
 
 <p align="center">
@@ -71,7 +70,7 @@ We propose a semi-automatic annotation pipeline for creating a grounded conversa
 
 ---
 
-## Results
+## 📈 Results
 
 
 > |1| **VideoMolmo** demonstrates robust generalization and fine-grained spatio-temporal grounding across diverse out-of-distribution scenarios from our proposed benchmark, for instance, correctly pointing to traffic lights (2nd row) in challenging driving scenes despite never encountering such scenarios during training.
