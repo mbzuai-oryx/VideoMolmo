@@ -1,21 +1,32 @@
-# VideoMolmo: Spatio-Temporal Grounding meets Pointing
-![](https://i.imgur.com/waxVImv.png)
+# 📽️ VideoMolmo: Spatio-Temporal Grounding meets Pointing
 
-[Ghazi Shazan Ahmad](https://github.com/khufia)* , [Ahmed Heakl](https://scholar.google.com/citations?user=JcWO9OUAAAAJ&hl=en)*, [Hanan Gani](https://github.com/hananshafi), [Abdelrahman Shaker](https://amshaker.github.io/), [Ranjay Krishna](https://ranjaykrishna.com/index.html), [Fahad Shahbaz Khan](https://scholar.google.es/citations?user=zvaeYnUAAAAJ&hl=en). [Salman Khan](https://salman-h-khan.github.io/),
+<div align="left" style="margin:24px 0;">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif"
+       width="100%" height="5"/>
+</div>
 
-**MBZUAI, University of Washington, Allen Institute for Artificial Intelligence, 
-Linköping University, ANU**
+<p align="center">
+  <a href="https://mbzuai-oryx.github.io/VideoMolmo/"><img src="https://img.shields.io/badge/Project-Website-87CEEB?style=flat-square" alt="Website"></a>
+  <a href="https://arxiv.org/abs/2411.04923"><img src="https://img.shields.io/badge/arXiv-Paper-brightgreen?style=flat-square" alt="arXiv"></a>
+</p>
 
-\* Equal Technical Contributions
+<p align="center">
+  <b>Ghazi Shazan Ahmad</b><sup>*</sup>, <b>Ahmed Heakl</b><sup>*</sup>, 
+  <b>Hanan Gani</b>, <b>Abdelrahman Shaker</b>, <b>Ranjay Krishna</b>, 
+  <b>Fahad Shahbaz Khan</b>, <b>Salman Khan</b>  
+</p>
 
-[![Website](https://img.shields.io/badge/Project-Website-87CEEB)](https://mbzuai-oryx.github.io/VideoMolmo/)
-[![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2411.04923)
+<p align="center">
+  <b>MBZUAI</b> · <b>University of Washington</b> · <b>Allen Institute for AI</b> · <b>Linköping University</b> · <b>ANU</b>
+</p>
+
+<p align="center"><sup>*</sup>Equal Technical Contributions</p>
 
 ---
 
-## 📢 Latest Updates
+## 🆕 Latest Updates
 
-- **May-2025:** Paper and inference is released!
+- 📢 **May 2025**: Paper and inference code released!
 
 ---
 
