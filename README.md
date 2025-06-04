@@ -1,12 +1,12 @@
 # VideoMolmo: Spatio-Temporal Grounding meets Pointing
 ![](https://i.imgur.com/waxVImv.png)
 
-[Ghazi Shazan Ahmad](https://github.com/khufia)* , [Ahmed Heakl](https://github.com/ahmedheakl)*, [Hanan Gani](https://github.com/hananshafi), [Abdelrahman Shaker](https://amshaker.github.io/), [Fahad Shahbaz Khan](https://scholar.google.es/citations?user=zvaeYnUAAAAJ&hl=en). [Salman Khan](https://salman-h-khan.github.io/),
+[Ghazi Shazan Ahmad](https://github.com/khufia)* , [Ahmed Heakl](https://github.com/ahmedheakl)*, [Hanan Gani](https://github.com/hananshafi), [Abdelrahman Shaker](https://amshaker.github.io/), [Ranjay Krishna](https://ranjaykrishna.com/index.html), [Fahad Shahbaz Khan](https://scholar.google.es/citations?user=zvaeYnUAAAAJ&hl=en). [Salman Khan](https://salman-h-khan.github.io/),
 
-**Mohamed bin Zayed University of Artificial Intelligence, University of Washington, Allen Institute for Artificial Intelligence, 
-Linköping University, Australian National University**
+**MBZUAI, University of Washington, Allen Institute for Artificial Intelligence, 
+Linköping University, ANU**
 
-[![Website](https://img.shields.io/badge/Project-Website-87CEEB)](https://mbzuai-oryx.github.io/VideoGLaMM/)
+[![Website](https://img.shields.io/badge/Project-Website-87CEEB)](https://mbzuai-oryx.github.io/VideoMolmo/)
 [![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2411.04923)
 
 ---
@@ -23,15 +23,18 @@ Linköping University, Australian National University**
   <img src="assets/videomolmo_teaser.png" width="70%" alt="VideoMolmo Architectural Overview">
 </p>
 
-VideoGLaMM is a large video multimodal video model capable of pixel-level visual grounding. The model responds to natural language queries from the user and intertwines spatio-temporal object masks in its generated textual responses to provide a detailed understanding of video content. VideoGLaMM seamlessly connects three key components: a Large Language Model (LLM); dual vision encoders; and a spatio-temporal pixel decoder. The dual vision encoders extract spatial and temporal features separately, which are jointly passed to the LLM to output responses rich in both spatial and temporal cues. This is facilitated by end-to-end training on our proposed benchmark Grounded conversation Generation (GCG) dataset featuring 38k Video-QA triplets with 87k objects and 671k fine-grained masks.
+**VideoMolmo** is a a large multimodal model tailored for fine-grained spatio-temporal pointing conditioned on textual descriptions. Building upon the Molmo architecture, VideoMolmo incorporates a temporal module utilizing an attention mechanism to condition each frame on preceding frames, ensuring temporal consistency. Additionally, our novel temporal mask fusion pipeline employs SAM2 for bidirectional point propagation, significantly enhancing coherence across video sequences. This two-step decomposition i.e., first using the LLM to generate precise pointing coordinates, then relying on a sequential mask-fusion module to produce coherent segmentation, not only simplifies the task for the language model but also enhances interpretability. Due to the lack of suitable datasets, we curate a comprehensive dataset comprising 72k video-caption pairs annotated with 100k object points. To evaluate the generalization of VideoMolmo, we introduce VPoS-Bench, a challenging out-of-distribution benchmark spanning five real-world scenarios: Cell Tracking, Egocentric Vision, Autonomous Driving, Video-GUI Interaction, and Robotics. We also evaluate our model on Referring Video Object Segmentation (Refer-VOS) and Reasoning VOS tasks. In comparison to existing models, \method substantially improves spatio-temporal pointing accuracy and reasoning capability.
 
 ---
 ## 🏆 Highlights
-1. We introduce Video Grounded Large Multi-modal Model (VideoGLaMM), a video large multimodal model, capable of pixel-level visual grounding, featuring an end-to-end alignment mechanism.
+Key contributions of **VideoMolmo**:
+1. We introduce VideoMolmo , an LMM that accepts natural-language queries and produces point-level predictions for target objects across entire video sequences, ensuring temporal consistency.
 
-2. To achieve fine-grained spatio-temporal alignment, we introduce a benchmark grounded conversation generation (GCG) dataset consisting of 38k grounded video-QA triplet pairs and 83k objects and roughly 671k fine-grained spatio-temporal masks.
+2. We further introduce Temporal module to leverage past temporal context and propose a novel temporal mask fusion pipeline for enhanced temporal coherence.
 
-3. We assess the performance of VideoGLaMM across diverse tasks spanning grounded conversation generation, visual grounding, and referring video segmentation, where it achieves state-of-the-art performance
+3. To achieve fine-grained spatio-temporal pointing, we introduce a comprehensive dataset of 72k video-caption pairs and 100k object points.
+
+4. To evaluate the generalization of VideoMolmo, we introduce VPoS-Bench, a challenging out-of-distribution benchmark spanning five real-world scenarios: Cell Tracking, Egocentric Vision, Autonomous Driving, Video-GUI Interaction, and Robotics. We also assess our model on Referring Video Object Segmentation (Ref-VOS) and Reasoning VOS tasks.
 
 ---
 <!-- Architecture -->
@@ -41,7 +44,7 @@ VideoGLaMM is a large video multimodal video model capable of pixel-level visual
   <img src="assets/videomolmo_architecture.png" alt="VideoGLaMM Architecture">
 </p>
 
-VideoGLaMM consists of following key components: (i) Spatio-Temporal Dual Encoder, (ii) Dual Alignment V-L Adapters for image and video features, (iii) Large Language Model (LLM) iv) L-V Adapter and (iv) Promptable Pixel Decoder.
+**VideoMolmo** consists of four end-to-end trainable components: (1) a visual encoder, (2) a temporal module, (3) visual projector (4) a decoder-only large language model (LLM); and a post-processing module.
 
 ---
 ## Benchmark and Annotation Pipeline
@@ -73,20 +76,19 @@ We propose a semi-automatic annotation pipeline for creating a grounded conversa
     python setup.py build_ext --inplace
     cd ../../..
 
+
 ### Training and Evaluation
 
-Please refer [here](RUN_VideoGLaMM.md) for instructions
+To be released soon!
 
 
 ## Citation 📜
 
 ```bibtex
-@article{munasinghe2024videoglamm,
-  title={VideoGLaMM: A Large Multimodal Model for Pixel-Level Visual Grounding in Videos}, 
-  author={Shehan Munasinghe and Hanan Gani and Wenqi Zhu and Jiale Cao and Eric Xing and Fahad Khan and Salman Khan},
-  journal={ArXiv},
-  year={2024},
-  url={https://arxiv.org/abs/2411.04923}
+@article{ghazi2025videomolmo,
+  title={VideoMolmo: Spatio-Temporal Grounding meets Pointing}, 
+  author={Ghazi Ahmad, Ahmed Heakl, Hanan Ghani, Abdelrahman Shaker, Ranjay Krishna, Fahad Shahbaz Khan, Salman Khan},
+  year={2025}
 }
 ```
 
