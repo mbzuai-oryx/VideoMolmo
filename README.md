@@ -11,9 +11,13 @@
 </p>
 
 <p align="center">
-  <b>Ghazi Shazan Ahmad</b><sup>*</sup>, <b>Ahmed Heakl</b><sup>*</sup>, 
-  <b>Hanan Gani</b>, <b>Abdelrahman Shaker</b>,<br> 
-  <b>Ranjay Krishna</b>, <b>Fahad Shahbaz Khan</b>, <b>Salman Khan</b>
+  <a href="https://github.com/khufia"><b>Ghazi Shazan Ahmad</b></a><sup>*</sup>, 
+  <a href="https://scholar.google.com/citations?user=JcWO9OUAAAAJ&hl=en"><b>Ahmed Heakl</b></a><sup>*</sup>, 
+  <a href="https://github.com/hananshafi"><b>Hanan Gani</b></a>, 
+  <a href="https://amshaker.github.io/"><b>Abdelrahman Shaker</b></a>,<br> 
+  <a href="https://ranjaykrishna.com/index.html"><b>Ranjay Krishna</b></a>, 
+  <a href="https://scholar.google.es/citations?user=zvaeYnUAAAAJ&hl=en"><b>Fahad Shahbaz Khan</b></a>, 
+  <a href="https://salman-h-khan.github.io/"><b>Salman Khan</b></a>
 </p>
 
 
@@ -51,7 +55,7 @@ Key contributions of **VideoMolmo**:
 4. To evaluate the generalization of VideoMolmo, we introduce VPoS-Bench, a challenging out-of-distribution benchmark spanning five real-world scenarios: Cell Tracking, Egocentric Vision, Autonomous Driving, Video-GUI Interaction, and Robotics. We also assess our model on Referring Video Object Segmentation (Ref-VOS) and Reasoning VOS tasks.
 
 ---
-## Architecture
+## 🧠 Architecture
 
 <p align="center">
   <img src="assets/videomolmo_architecture.png" alt="VideoGLaMM Architecture">
@@ -60,7 +64,7 @@ Key contributions of **VideoMolmo**:
 **VideoMolmo** consists of four end-to-end trainable components: (1) a visual encoder, (2) a temporal module, (3) visual projector (4) a decoder-only large language model (LLM); and a post-processing module.
 
 ---
-## Benchmark and Annotation Pipeline
+## 🏗️ Benchmark and Annotation Pipeline
 
 <p align="center">
   <img src="assets/videomolmo_annotation_pipeline.png" alt="Annotation Pipeline">
