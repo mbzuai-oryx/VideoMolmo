@@ -1,9 +1,9 @@
 # VideoMolmo: Spatio-Temporal Grounding meets Pointing
 ![](https://i.imgur.com/waxVImv.png)
 
-[Ghazi Shazan Ahmad](https://github.com/khufia) , [Ahmed Heakl](https://github.com/ahmedheakl), [Hanan Gani](https://github.com/hananshafi), [Abdelrahman Shaker](https://amshaker.github.io/), [Fahad Shahbaz Khan](https://scholar.google.es/citations?user=zvaeYnUAAAAJ&hl=en). [Salman Khan](https://salman-h-khan.github.io/),
+[Ghazi Shazan Ahmad](https://github.com/khufia)* , [Ahmed Heakl](https://github.com/ahmedheakl)*, [Hanan Gani](https://github.com/hananshafi), [Abdelrahman Shaker](https://amshaker.github.io/), [Fahad Shahbaz Khan](https://scholar.google.es/citations?user=zvaeYnUAAAAJ&hl=en). [Salman Khan](https://salman-h-khan.github.io/),
 
-**Mohamed bin Zayed University of Artificial Intelligence,
+**Mohamed bin Zayed University of Artificial Intelligence, University of Washington, Allen Institute for Artificial Intelligence, 
 Linköping University, Australian National University**
 
 [![Website](https://img.shields.io/badge/Project-Website-87CEEB)](https://mbzuai-oryx.github.io/VideoGLaMM/)
@@ -13,14 +13,14 @@ Linköping University, Australian National University**
 
 ## 📢 Latest Updates
 
-- **May-2025:** Paper and code is released!
+- **May-2025:** Paper and inference is released!
 
 ---
 
-## <img src="docs/images/logos/logo-videoglamm.png" height="25">  Overview
+## Overview
 
 <p align="center">
-  <img src="docs/images/figures/cvpr25-teaser.png" width="70%" alt="VideoGLaMM Architectural Overview">
+  <img src="assets/videomolmo_teaser.png" width="70%" alt="VideoMolmo Architectural Overview">
 </p>
 
 VideoGLaMM is a large video multimodal video model capable of pixel-level visual grounding. The model responds to natural language queries from the user and intertwines spatio-temporal object masks in its generated textual responses to provide a detailed understanding of video content. VideoGLaMM seamlessly connects three key components: a Large Language Model (LLM); dual vision encoders; and a spatio-temporal pixel decoder. The dual vision encoders extract spatial and temporal features separately, which are jointly passed to the LLM to output responses rich in both spatial and temporal cues. This is facilitated by end-to-end training on our proposed benchmark Grounded conversation Generation (GCG) dataset featuring 38k Video-QA triplets with 87k objects and 671k fine-grained masks.
@@ -35,50 +35,41 @@ VideoGLaMM is a large video multimodal video model capable of pixel-level visual
 
 ---
 <!-- Architecture -->
-## <img src="docs/images/logos/logo-videoglamm.png" height="25">  Architecture
+## Architecture
 
 <p align="center">
-  <img src="docs/images/figures/cvpr25_main_block_diagram-jpg.jpg" alt="VideoGLaMM Architecture">
+  <img src="assets/videomolmo_architecture.png" alt="VideoGLaMM Architecture">
 </p>
 
 VideoGLaMM consists of following key components: (i) Spatio-Temporal Dual Encoder, (ii) Dual Alignment V-L Adapters for image and video features, (iii) Large Language Model (LLM) iv) L-V Adapter and (iv) Promptable Pixel Decoder.
 
 ---
-## <img src="docs/images/logos/logo-videoglamm.png" height="25">  Benchmark and Annotation Pipeline
+## Benchmark and Annotation Pipeline
 
 <p align="center">
-  <img src="docs/images/figures/videoglamm_annotation_pipeline.png" alt="Annotation Pipeline">
+  <img src="assets/videomolmo_annotation_pipeline.png" alt="Annotation Pipeline">
 </p>
 
 We propose a semi-automatic annotation pipeline for creating a grounded conversation generation (GCG) dataset for videos.
 
 
 ---
-## Examples 🔍
 
-Given user queries, the VideoGLaMM generates textual responses and grounds objects and phrases using pixel-level masks, showing its detailed understanding of the video.
-
-<p align="center">
-  <img src="docs/images/figures/cvpr25_qualitative.png" alt="VideoGLaMM Architecture">
-</p>
-
----
-
-## Running VideoGLaMM 🔧
+## Running VideoMolmo 🔧
 
 ### Environment setup
 
-    conda create --name=videoglamm python=3.11
+    conda create --name=videomolmo python=3.11
 
-    conda activate videoglamm
+    conda activate videomolmo
 
     pip install torch==2.1.2 torchvision==0.16.2 --index-url https://download.pytorch.org/whl/cu121
     pip install transformers==4.41.0
     DS_BUILD_FUSED_ADAM=1 pip install deepspeed==0.14.0
 
-    pip install -r VideoGLaMM/requirements_sam2_cluster.txt 
+    pip install -r VideoMolmo/requirements_sam2_cluster.txt 
 
-    cd VideoGLaMM/model/segment_anything_2
+    cd VideoMolmo/model/segment_anything_2
     python setup.py build_ext --inplace
     cd ../../..
 
@@ -101,6 +92,6 @@ Please refer [here](RUN_VideoGLaMM.md) for instructions
 
 ---
 
-[<img src="docs/images/logos/IVAL_logo.png" width="200" height="100">](https://www.ival-mbzuai.com)
-[<img src="docs/images/logos/Oryx_logo.png" width="100" height="100">](https://github.com/mbzuai-oryx)
-[<img src="docs/images/logos/MBZUAI_logo.png" width="360" height="85">](https://mbzuai.ac.ae)
+[<img src="assets/MBZUAI_logo.png" width="360" height="85">](https://mbzuai.ac.ae)
+[<img src="assets/allenai_logo.png" width="360" height="85">](https://mbzuai.ac.ae)
+[<img src="assets/UW_logo.png" width="360" height="85">](https://mbzuai.ac.ae)
