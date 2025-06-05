@@ -13,7 +13,7 @@
 <p align="center">
   <a href="https://github.com/khufia"><b>Ghazi Shazan Ahmad</b></a><sup>*</sup>, 
   <a href="https://scholar.google.com/citations?user=JcWO9OUAAAAJ&hl=en"><b>Ahmed Heakl</b></a><sup>*</sup>, 
-  <a href="https://github.com/hananshafi"><b>Hanan Gani</b></a>, 
+  <a href="https://hananshafi.github.io/"><b>Hanan Gani</b></a>, 
   <a href="https://amshaker.github.io/"><b>Abdelrahman Shaker</b></a>,
    <a href="https://zhiqiangshen.com/"><b>Zhiqiang Shen</b></a>,<br>
   <a href="https://ranjaykrishna.com/index.html"><b>Ranjay Krishna</b></a>, 
