@@ -59,7 +59,7 @@ Key contributions of **VideoMolmo**:
 ## 🧠 Architecture
 
 <p align="center">
-  <img src="assets/videomolmo_architecture.png" alt="VideoGLaMM Architecture">
+  <img src="assets/videomolmo_main_diagram.jpg" alt="VideoGLaMM Architecture">
 </p>
 
 **VideoMolmo** consists of four end-to-end trainable components: (1) a visual encoder, (2) a temporal module, (3) visual projector (4) a decoder-only large language model (LLM); and a post-processing module.
