@@ -170,10 +170,14 @@ To be released soon! Stay tuned for updates.
 ## Citation 📜
 
 ```bibtex
-@article{ghazi2025videomolmo,
-  title={VideoMolmo: Spatio-Temporal Grounding meets Pointing}, 
-  author={Ghazi Ahmad, Ahmed Heakl, Hanan Ghani, Abdelrahman Shaker, Ranjay Krishna, Fahad Shahbaz Khan, Salman Khan},
-  year={2025}
+  @misc{ahmad2025videomolmospatiotemporalgroundingmeets,
+      title={VideoMolmo: Spatio-Temporal Grounding Meets Pointing},
+      author={Ghazi Shazan Ahmad and Ahmed Heakl and Hanan Gani and Abdelrahman Shaker and Zhiqiang Shen and Ranjay Krishna and Fahad Shahbaz Khan and Salman Khan},
+      year={2025},
+      eprint={2506.05336},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+url={https://arxiv.org/abs/2506.05336},
 }
 ```
 
