@@ -104,7 +104,7 @@ We propose a semi-automatic annotation pipeline for creating a grounded conversa
 (1) Setup environment and PyTorch
 ```bash
 git clone https://github.com/mbzuai-oryx/VideoMolmo
-cd VideoMolmo
+cd VideoMolmo/VideoMolmo
 conda create -n .videomolmo python=3.10 -y
 conda activate .videomolmo
 pip install torch==2.5.1 torchvision==0.20.1 --index-url https://download.pytorch.org/whl/cu121
