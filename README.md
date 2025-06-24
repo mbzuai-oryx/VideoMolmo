@@ -10,6 +10,8 @@
   <a href="https://arxiv.org/abs/2506.05336"><img src="https://img.shields.io/badge/arXiv-Paper-brightgreen?style=flat-square" alt="arXiv"></a>
   <a href="https://huggingface.co/datasets/ghazishazan/VPoS"><img src="https://img.shields.io/badge/🤗_Dataset-Access-green" alt="dataset"></a>
   <a href="https://huggingface.co/ghazishazan/VideoMolmo"><img src="https://img.shields.io/badge/HuggingFace-Model-F9D371" alt="model"></a>
+  <a href="https://colab.research.google.com/drive/1gqg5kBP9MYkdarEry7QS5rJFQYOG7DiF?usp=sharing"><img src="https://img.shields.io/badge/Run-Colab-orange?style=flat-square&logo=google-colab" alt="Colab"></a>
+
 </p>
 
 <p align="center">
