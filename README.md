@@ -36,7 +36,8 @@
 
 ## 🆕 Latest Updates
 
-- 📢 **May 2025**: Paper and inference code released!
+- 📢 **June 2025**: [Colab Notebook](https://colab.research.google.com/drive/1gqg5kBP9MYkdarEry7QS5rJFQYOG7DiF?usp=sharing) with our bidirectional inference method is released!
+- 📢 **May 2025**: Paper and inference code are released!
 
 
 
