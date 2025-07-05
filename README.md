@@ -20,14 +20,13 @@
   <a href="https://hananshafi.github.io/"><b>Hanan Gani</b></a>, 
   <a href="https://amshaker.github.io/"><b>Abdelrahman Shaker</b></a>,
    <a href="https://zhiqiangshen.com/"><b>Zhiqiang Shen</b></a>,<br>
-  <a href="https://ranjaykrishna.com/index.html"><b>Ranjay Krishna</b></a>, 
   <a href="https://scholar.google.es/citations?user=zvaeYnUAAAAJ&hl=en"><b>Fahad Shahbaz Khan</b></a>, 
   <a href="https://salman-h-khan.github.io/"><b>Salman Khan</b></a>
 </p>
 
 
 <p align="center">
-  <b>MBZUAI</b> · <b>University of Washington</b> · <b>Allen Institute for AI</b> · <b>Linköping University</b> · <b>ANU</b>
+  <b>MBZUAI</b> · <b>Linköping University</b> · <b>ANU</b>
 </p>
 
 <p align="center"><sup>*</sup>Equal Technical Contributions</p>
@@ -187,5 +186,3 @@ url={https://arxiv.org/abs/2506.05336},
 ---
 
 [<img src="assets/MBZUAI_logo.png" width="360" height="90">](https://mbzuai.ac.ae)
-[<img src="assets/allenai_logo.png" width="300" height="85">](https://allenai.org/)
-[<img src="assets/UW_logo.png" width="300">](https://www.washington.edu/)
